@@ -1,10 +1,13 @@
+// Load environment variables from .env file
+require('dotenv').config();
+
 const TelegramBot = require('node-telegram-bot-api');
 
-// Your bot token
-const token = '7912259526:AAH0DpoAnyj9w8OxoLTehmlDy6rzBAu-5z0';
+// Securely access the bot token from the environment variable
+const token = process.env.BOT_API_KEY;
 
 // Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(token, {polling: true});
+const bot = new TelegramBot(token, { polling: true });
 
 // Matches "/start"
 bot.onText(/\/start/, (msg) => {

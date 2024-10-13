@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@tonconnect/sdk": "^3.0.5",
+    "dotenv": "^16.4.5",
     "node-telegram-bot-api": "^0.66.0",
     "qrcode.react": "^4.0.1"
   },
