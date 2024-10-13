@@ -1,8 +1,8 @@
 {
-  "url": "https://impton.vercel.app",
-  "name": "IMPACT TON",
-  "iconUrl": "https://impton.vercel.app/impton-logo.png",
+  "name": "IMPCTON Rewards",
+  "description": "A rewards platform for earning IMPCTON tokens by completing tasks.",
+  "iconUrl": "https://i.imgur.com/your-icon.png",
   "termsOfUseUrl": "https://impton.vercel.app/terms",
-  "privacyPolicyUrl": "https://impton.vercel.app/privacy"
-  "preferred": true
+  "url": "https://i.imgur.com/XITPp8g.png",
+  "bridgeUrl": "https://ton-bridge-url.com"
 }
