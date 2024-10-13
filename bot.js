@@ -5,7 +5,7 @@ require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 
 // Securely access the bot token from the environment variable
-const token = process.env.BOT_API_KEY;
+console.log('Bot Token:', process.env.TELEGRAM_BOT_TOKEN);
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, { polling: true });
