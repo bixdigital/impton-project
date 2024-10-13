@@ -1,7 +1,8 @@
 {
-    "name": "Your App Name",
-    "description": "Description of your app",
-    "url": "https://your-app-url.com",
-    "icon": "https://your-icon-url.com/icon.png",
-    "preferred": true
+  "url": "https://impton.vercel.app",
+  "name": "IMPACT TON",
+  "iconUrl": "https://impton.vercel.app/impton-logo.png",
+  "termsOfUseUrl": "https://impton.vercel.app/terms",
+  "privacyPolicyUrl": "https://impton.vercel.app/privacy"
+  "preferred": true
 }
