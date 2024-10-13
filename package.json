@@ -3,5 +3,15 @@
     "@tonconnect/sdk": "^3.0.5",
     "node-telegram-bot-api": "^0.66.0",
     "qrcode.react": "^4.0.1"
-  }
+  },
+  "name": "impton-project",
+  "version": "1.0.0",
+  "description": "IMPTON is an exciting new token on the TON blockchain designed to empower users and foster community engagement. With low transaction fees and seamless integration into dApps, IMPTON is set to revolutionize how we interact online.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
