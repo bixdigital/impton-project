@@ -1,6 +1,7 @@
 // Load environment variables from .env file
 require('dotenv').config();
 
+
 const TelegramBot = require('node-telegram-bot-api');
 
 // Securely access the bot token from the environment variable
