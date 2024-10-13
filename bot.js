@@ -11,7 +11,7 @@ bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
 
     // URL for your website
-    const websiteUrl = "https://c536f372ea0a497d95956021ddef4203.serveo.net"; // Update the URL to your current site
+    const websiteUrl = "https://impton.vercel.app/"; // Update the URL to your current site
 
     // Reply with a message containing an inline button that links to your website
     const opts = {
