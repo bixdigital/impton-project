@@ -1,8 +1,22 @@
 {
   "name": "IMPCTON Rewards",
   "description": "A rewards platform for earning IMPCTON tokens by completing tasks.",
-  "iconUrl": "https://i.imgur.com/your-icon.png",
+  "iconUrl": "https://i.imgur.com/XITPp8g.png",
   "termsOfUseUrl": "https://impton.vercel.app/terms",
-  "url": "https://i.imgur.com/XITPp8g.png",
-  "bridgeUrl": "https://ton-bridge-url.com"
+  "url": "https://impton.vercel.app/",
+  "bridgeUrl": "https://ton-bridge-url.com",
+  "version": "1.0",
+  "fields": {
+    "network": {
+      "name": "Network",
+      "type": "string",
+      "required": true,
+      "description": "Select the network you want to connect to."
+    }
+  },
+  "features": [
+    "transaction",
+    "sign",
+    "custom"
+  ]
 }
