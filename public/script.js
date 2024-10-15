@@ -1,14 +1,17 @@
+// Import TonConnect
+import { TonConnect } from '@tonconnect/sdk';
+
 // Initialize TON Connect
 const tonConnect = new TonConnect();
 
 // Find the Connect Button
-const connectButton = document.getElementById('connect-button');
+const connectButton = document.getElementById('tonconnect-button');
 
 // Event listener for Connect Button
 connectButton.addEventListener('click', async () => {
     try {
         // Request to connect the wallet
-        await tonConnect.connectWallet();
+        await tonConnect.connect();
         console.log('Wallet connected successfully!');
 
         // Call function to initiate payment
@@ -21,13 +24,13 @@ connectButton.addEventListener('click', async () => {
 
 // Function to initiate payment (0.3 TON gas fee)
 async function initiatePayment() {
-    const receivingAddress = process.env.TON_RECEIVING_ADDRESS; // Use an environment variable for the wallet address
+    const receivingAddress = 'UQCfW4ISTtreUwrUtT8ma-wIAmG3oqTw6yzVTbfYq0rMpRab'; // Your receiving TON wallet address
 
     try {
         const txParams = {
             to: receivingAddress, // Your receiving TON wallet address
             value: 0.3, // 0.3 TON
-            data: 'Claiming 100,000 IMPCTON tokens',
+            data: 'Claiming 100,000 IMPCTON tokens', // Transaction description
         };
 
         const result = await tonConnect.requestTransaction(txParams);
