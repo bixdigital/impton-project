@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMPACT TON</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/@tonconnect/sdk@0.2.1/umd/tonconnect.min.js"></script>
+    <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js" defer></script> <!-- Updated SDK link -->
 </head>
 <body>
     <header>
@@ -16,7 +16,7 @@
             </div>
             <ul>
                 <li><a href="#about">About</a></li>
-                <li><a href="roadmap.html">Roadmap</a></li> <!-- Link to Roadmap Page -->
+                <li><a href="roadmap.html">Roadmap</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -36,7 +36,7 @@
 
     <section id="claim">
         <h2>Claim Your Tokens</h2>
-        <button id="tonconnect-button">Connect TON Wallet</button> <!-- Updated Button -->
+        <div class="section" id="tonconnect-buttons"></div> <!-- Container for dynamic wallet buttons -->
     </section>
 
     <section id="roadmap">
@@ -63,6 +63,42 @@
         <p>&copy; 2024 IMPACT TON. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script> <!-- Include the JavaScript file with the TONConnect logic -->
+    <script>
+        const $ = document.querySelector.bind(document);
+        
+        window.onload = async () => {
+            const connector = new TonConnectSDK.TonConnect();
+            const walletsList = await connector.getWallets();
+
+            let buttonsContainer = $('#tonconnect-buttons');
+            
+            for (let wallet of walletsList) {
+                let connectButton = document.createElement('button');
+                connectButton.innerText = 'Connect with ' + wallet.name;
+                
+                if (wallet.embedded) {
+                    connectButton.classList.add('featured');
+                }
+                
+                if (!wallet.bridgeUrl && !wallet.injected && !wallet.embedded) {
+                    connectButton.disabled = true;
+                }
+                
+                buttonsContainer.appendChild(connectButton);
+                
+                // Event listener for the connect button
+                connectButton.addEventListener('click', async () => {
+                    try {
+                        await connector.connectWallet();
+                        console.log('Wallet connected successfully!');
+                        // Optional: Call your payment function or handle further actions here
+                    } catch (error) {
+                        console.error('Failed to connect wallet:', error);
+                        alert('Error connecting to wallet. Please try again.');
+                    }
+                });
+            }
+        };
+    </script>
 </body>
 </html>
