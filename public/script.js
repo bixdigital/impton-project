@@ -11,8 +11,8 @@ const connectButton = document.getElementById('tonconnect-button');
 connectButton.addEventListener('click', async () => {
     try {
         // Request to connect the wallet
-        await tonConnect.connect();
-        console.log('Wallet connected successfully!');
+        const wallet = await tonConnect.connect();
+        console.log('Wallet connected successfully!', wallet);
 
         // Call function to initiate payment
         await initiatePayment();
